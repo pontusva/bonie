@@ -1,5 +1,7 @@
 <template>
-  <!-- <h3>Products</h3> -->
+  <div id="arrow-back-container">
+    <ArrowBack id="arrow-back" />
+  </div>
   <div>
     <template v-for="item in allProducts" :key="item.id">
       <img :src="item.src" alt="" class="product-img" />
@@ -8,9 +10,13 @@
 </template>
 
 <script>
+  import ArrowBack from '../components/SvgIcons/ArrowBack.vue'
   export default {
     created() {
       this.fetchAllProducts()
+    },
+    components: {
+      ArrowBack
     },
     data() {
       return {
@@ -39,13 +45,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
-    margin: 1em;
-    padding-top: 6em;
+    margin: 0.5em;
+    padding-top: 4em;
     justify-items: center;
   }
 
   img {
     max-width: 100%;
+  }
+
+  #arrow-back-container {
+    /* width: 100%; */
+    top: 50%;
+  }
+  #arrow-back {
+    position: absolute;
   }
 
   /* KZ tryied to make the images in the same size but also responsive.
